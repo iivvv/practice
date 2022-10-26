@@ -1,0 +1,275 @@
+/* 
+浅色:#FFF4ED;
+深色:#E38153;
+阴影颜色:rgba(0, 0, 0, .1); 
+*/
+/* #region-清除默认样式 */
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    a {
+        color: black; 
+    }
+/* #endregion */
+
+/* 解决高度塌陷和外边距折叠问题 */
+    .clearfix::after,.clearfix::before{
+        content: "";
+        display: block;
+        clear: both; }
+
+/* ———————————————————————— */
+/* #region-通用样式 */
+
+    /* 主体左右缩进 */
+    .main-content-size{
+        margin: 0px 16%;
+        /* background-color: aqua; */
+    }
+    /* 文字强调：加粗+彩色+下划线 */
+    .emphasize{
+        color: #E38153;
+        font-weight: 900;
+        text-decoration: underline;
+    }
+    /* 卡片阴影 */
+    .card-shadow{
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, .1);
+    }
+    /* 彩色上移下划线 （需注意z-index不是单独设置）*/
+    .underline-title1::after{
+        content: "";
+        display: block;
+        width: 96px;
+        height: 16px;
+        background-color: #E38153;
+        position: relative;
+        top: -10px;
+        z-index: -1;
+        border-radius: 10px;
+    }
+    .underline-title2::after{
+        content: "";
+        display: block;
+        width: 84px;
+        height: 16px;
+        background-color: #E38153;
+        position: relative;
+        top: -10px;
+        z-index: -1;
+        border-radius: 10px;
+    }
+/* #endregion */
+
+/* #region-导航条具体样式 */
+#navibar{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top:0px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .1);
+    /* overflow: hidden; */
+}
+.nav-course-name{
+    padding: 0 5%;
+    /* background-color: chartreuse; */
+    font-weight: bolder;
+}
+
+.nav-course-name,.rightmenu li{
+    float: left;
+    line-height: 60px;
+    /* background-color: blueviolet;  */
+}
+
+
+.rightmenu{
+    float: right;
+    padding: 0 5%;
+    width: 500px;
+    text-align: center;
+    /* height: 100%; */
+    /* background-color: brown; */
+    display: flex;
+    justify-content: space-between;
+}
+.rightmenu li{
+    width: 100px;
+    /* background-color: #E38153; */
+}
+.rightmenu a{
+    padding-bottom: 10px;
+    color: #8F8F8F;
+}
+.rightmenu a:hover{
+    color: black;
+    border-bottom:2px solid;
+    border-color: #E38153;
+}
+
+.previous{
+    /* background-color: aqua; */
+}
+.preyear{
+    background-color: #E38153;
+    display: none;
+    
+}
+
+.preyear a {
+    padding: 0;
+    display: block;
+    line-height: 30px;
+    /* height:30px */
+}
+.preyear a:hover{
+    color: rgb(255, 255, 255);
+    background-color: #E38153;
+    /* border-bottom:2px solid; */
+    /* border-color: #E38153 */
+
+}
+.previous:hover .preyear{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* #endregion */
+
+
+/* #region 课程简介区具体样式*/
+#intro-section{
+    background-color: #FFF4ED;
+    padding: 10% 14%;
+    margin: 110px 0px 50px 0;
+    border-radius: 40px;
+    position: relative;
+    z-index: -2;
+}
+#intro h2{
+    margin: 30px 0px 16px  0px;
+}
+
+.intro-para{
+    line-height: 30px;
+    text-indent: 2rem;
+}
+/* #endregion */
+
+
+/* #region 课程通知区具体样式 */
+#notice-section{
+    /* background-color: rgb(185, 185, 251); */
+    padding: 20px 20px;
+}
+h2{
+    /* background-color: aquamarine; */
+    
+    width: 100px;
+    margin: 0 auto;
+}
+
+
+.notices{
+    text-align: center;
+    line-height: 24px;
+}
+.notices p{
+    margin: 10px 0;
+}
+/* #endregion */
+
+
+/* #region 信息内容区 */
+#info-content-section{
+    font-size: 14px;
+    background-color:#FEF9F5 ;
+    padding: 20px;
+    margin: 20px 0 30px 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    z-index:-2;
+
+}
+
+.card{
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 20px 20px;
+    width: 400px;
+    position: relative;
+    z-index: -2;
+}
+#info-card table{
+    margin: 0 auto;
+    line-height: 20px;
+}
+
+
+#content-card ul{
+    
+    list-style-type:disc;
+    list-style-position: inside;
+    line-height: 24px;
+    padding: 5%;
+}
+
+/* #content-card ul li{
+    margin: 0 auto;
+} */
+
+
+
+
+
+/* #endregion */
+
+
+/* #region 教学内容区 */
+#schedule{
+    margin: 50px 0 60px 0;
+    padding: 20px;
+    border-radius: 20px;
+    background-color:#FEF9F5 ;
+}
+#schedule table{
+    background-color: #e6a586;
+    font-size: 14px ;
+    /* box-shadow: 4px 4px 10px rgba(0, 0, 0, .1); */
+   
+    margin:10px 0;
+    border: 1px solid #FFF;
+    table-layout: auto;
+    width: 100%;
+    
+}
+#schedule table thead{
+    color: #FFF;
+    background-color: black;
+}
+#schedule table td{
+    padding: 8px 5px;
+}
+#schedule th,#schedule td{
+    border: 1px solid #FFF;
+   padding: 5px;
+}
+tbody tr:hover{
+    background-color: #FEF9F5;
+}
+#schedule a{
+    /* background-color: aqua; */
+}
+#schedule a:hover{
+    text-decoration: underline;
+}
+
+/* #endregion */

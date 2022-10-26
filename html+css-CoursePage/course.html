@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件分析技术</title>
+    <link rel="stylesheet" href="./course.css">
+</head>
+
+<body>
+    <!-- 顶部导航条 -->
+    
+    
+        <ul id="navibar" class="nav-shadow ">
+            <li class="nav-course-name"><a href="#intro">软件分析技术</a></li>
+            <div class="rightmenu">
+                <li><a href="#intro">课程简介</a> </li>
+                <li><a href="#notice-section">课程通知</a></li>
+                <li><a href="#info-card">课程信息</a> </li>
+                <li><a href="#schedule">教学内容</a> </li>
+                <li class="previous">
+                    <a href="#">往年课程</a>
+                    <ul class="preyear" >
+                        <li><a href="https://xiongyingfei.github.io/SA/2021/main.htm">2021</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2020/main.htm">2020</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2019/main.htm">2019</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2018/main.htm">2018</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2017/main.htm">2017</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2016/main.htm">2016</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2015/main.htm">2015</a></li>
+                        <li><a href="https://xiongyingfei.github.io/SA/2014/main.htm">2014</a></li>
+                    </ul> 
+                </li>
+            </div>
+        </ul>
+    
+
+    <!-- 课程区左右留白 -->
+    <div class="main-content-size">
+
+        <!-- 课程介绍 -->
+        <div id="intro-section">
+            <div id="intro">
+                <h1>软件分析技术<br>Software Analysis</h1>
+                <h2 class="underline-title1">课程简介</h2>
+                <p class="intro-para">
+                    对软件代码进行分析是各种软件工程工具的基本手段之一。典型软件开发工具比如编译器、代码编辑器、测试与调试工具等等都离不开对软件代码进行分析。在工业界，各大公司的基础平台部门对掌握软件分析技术的人才有大量需求；在学术界，软件分析技术是程序设计语言和软件工程领域开展研究的必备基础知识之一。但是，软件分析技术相关文献存在内容广，流派多，数学基础要求高等方面的特点，使得学习软件分析技术一直是一件很困难的事。本课程希望通过对这一类技术进行通俗易懂的讲解，帮助同学们构建较完整的软件分析技术知识体系，了解该领域的前沿知识，学术上为进一步开展程序设计语言和软件工程领域的学术研究打下基础，在实践上培养开发大型软件工程工具的开发能力。
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- 课程通知 -->
+        <div id="notice-section">
+            <h2>课程通知</h2>
+            <div class="notices">
+                <p class="notice-way">
+                    作业提交方式：<br>通过邮件附件将作业发送到<span class="emphasize">ruanfen2022@163.com</span> ，
+                    <br>邮件标题为“<span class="emphasize">软分作业[k]-[姓名]-[学号]</span>”。
+                </p>
+                <p class="notice-time">如无特别声明，作业的截止日期为下一周上课之前。</p>
+            </div>
+           
+        </div>
+
+        <!-- 两张卡片 -->
+        <div id="info-content-section">
+            <!-- 课程信息 -->
+            <div id="info-card" class="card card-shadow">
+                <h2 class="underline-title2">课程信息</h2>
+                <table class="disp">
+                    <tr>
+                        <td>学分：</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>周学时：</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>总学时：</td>
+                        <td>54</td>
+                    </tr>
+                    <tr>
+                        <td>上课时间：</td>
+                        <td>每周周二 5-6节 双周周四3-4节</td>
+                    </tr>
+                    <tr>
+                        <td>上课地点：</td>
+                        <td>三教 <b>103</b></td>
+                    </tr>
+                    <tr>
+                        <td>任课教师：</td>
+                        <td><a href="https://xiongyingfei.github.io/index_cn.html">熊英飞</a> xiongyf@pku.edu.cn</td>
+                    </tr>
+                    <tr>
+                        <td>授课对象：</td>
+                        <td>本科生</td>
+                    </tr>
+                    <tr>
+                        <td>课程助教：</td>
+                        <td>陈逸凡 yf_chen@pku.edu.cn
+                        <br>朱琪豪 zhuqh@pku.edu.cn
+                        <br>叶振涛 ztye@pku.edu.cn</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 课程内容 -->
+            <div id="content-card" class="card card-shadow">
+                <h2 class="underline-title2">课程内容</h2>
+                <ul>
+                    <li>基于抽象解释的程序分析（数据流分析、过程间分析、指针分析、抽象解释、抽象解释的自动化等）</li>
+                    <li>基于约束求解的程序分析（SAT、SMT、符号执行等）</li>
+                    <li>软件分析应用（程序合成、缺陷定位、缺陷修复等）</li>
+                </ul>
+            </div>
+        </div>
+      
+        <!-- 教学内容 -->
+        <div id="schedule">
+            <h2>教学内容</h2>
+            <table class="disp " id="sched" rules="groups" border="true">
+                <colgroup width="10%"></colgroup>
+                <colgroup width="20%"></colgroup>
+                <colgroup width="10%"></colgroup>
+                <colgroup width="20%"></colgroup>
+                <colgroup width="20%"></colgroup>
+                <thead>
+                    <tr>
+                        <th>课程日期</th>
+                        <th>课程内容</th>
+                        <th>讲师</th>
+                        <th>讲义</th>
+                        <th>作业/项目</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9月6日</td>
+                        <td>课程介绍</td>
+                        <td>熊英飞</td>
+                        <td><a href="01_intro.pdf">01_intro.pdf</a></td>
+                        <td>无</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>9月13日</td>
+                        <td>程序设计语言基础知识</td>
+                        <td>熊英飞</td>
+                        <td><a href="02_basics.pdf">02_basics.pdf</a></td>
+                        <td>无</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>9月15日</td>
+                        <td>数据流分析I：基础</td>
+                        <td>熊英飞</td>
+                        <td><a href="03_dataflow_analysis_I.pdf">03_dataflow_analysis_I.pdf</a></td>
+                        <td>见胶片</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>9月20日</td>
+                        <td>数据流分析II：性质和扩展</td>
+                        <td>熊英飞</td>
+                        <td><a href="04_dataflow_analysis_II.pdf">04_dataflow_analysis_II.pdf</a></td>
+                        <td>无</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>9月27日</td>
+                        <td>数据流分析III：多视角理解数据流分析</td>
+                        <td>熊英飞</td>
+                        <td><a href="05_dataflow_analysis_III.pdf">05_dataflow_analysis_III.pdf</a></td>
+                        <td>见胶片</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>9月29日</td>
+                        <td>静态单赋值和稀疏分析</td>
+                        <td>熊英飞</td>
+                        <td><a href="06_static_single_assignment.pdf">06_static_single_assignment.pdf</a></td>
+                        <td>无</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>10月4日</td>
+                        <td>过程间分析</td>
+                        <td>熊英飞</td>
+                        <td><a href="07_interprocedural_analysis_basics.pdf">07_interprocedural_analysis_basics.pdf</a>
+                        </td>
+                        <td>见胶片</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>10月11日</td>
+                        <td>过程间分析加速技术</td>
+                        <td>熊英飞</td>
+                        <td><a
+                                href="08_interprocedural_analysis_optimization.pdf">08_interprocedural_analysis_optimization.pdf</a>
+                        </td>
+                        <td>见胶片</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>10月13日</td>
+                        <td>过程内指针分析</td>
+                        <td>熊英飞</td>
+                        <td><a href="09_pointer_analysis.pdf">09_pointer_analysis.pdf</a><br />
+                            <a href="course_project_1.pdf">course_project_1.pdf</a>
+                        </td>
+                        <td>
+                            组队截止日期：10月18日<br />
+                            提交截止日期：11月12日<br />
+                            汇报日期：11月15日
+                        </td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>
