@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var subarr = function (arr) {
+            let a = []
+            if (arr.length == 1) {
+                a.push(arr)
+                return a
+            } else {
+                let a1 = arr[0]
+                let a2 = subarr(arr.slice(1))
+                a = JSON.parse(JSON.stringify(a2))
+                for (let i = 0; i < a2.length; i++) {
+                    a2[i].push(a1)
+                    a.push(a2[i])
+                }
+            }
+            return a
+        }
+        // console.log(subarr([1,2,3]));
+
+        var subsets = function (nums) {
+            let solutions = []
+            if (nums.length == 1) {
+                // return [[], nums]
+                return [nums]
+            } else {
+                let a1 = nums[0]
+                a2 = subsets(nums.slice(1))
+                a = JSON.parse(JSON.stringify(a2))
+                for (let i = 0; i < a2.length; i++) {
+                    a2[i].push(a1)
+                    a.push(a2[i])
+                }
+                return a
+            }
+        };
+
+        // console.log(subsets([1,2,3]));
+        var sumSubarrayMins = function (arr) {
+            let sum = 0
+            for (let len = 1; len <= arr.length; len++) {
+                let left = 0
+                let right = left + len
+                while (right <= arr.length) {
+                    let tmparr = []
+                    tmparr = arr.slice(left, right)
+                    sum += Math.min.apply(null, tmparr)
+                    console.log(sum);
+                    if (sum >= (10**9 + 7)) {
+                        sum -= (10**9 + 7)
+                    }
+                    left++
+                    right++
+                }
+            }
+            return sum
+        };
+        console.log(sumSubarrayMins([11,81,94,43,3]));
+    </script>
+</body>
+
+</html>

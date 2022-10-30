@@ -1,18 +1,50 @@
 <template>
-    <div class="todo-footer">
+    <div class="todo-footer" v-show="total">
         <label>
-            <input type="checkbox"/>
+            <input type="checkbox" v-model="isAll"/>
         </label>
         <span>
-            <span>已完成0</span>/全部2
+            <span>已完成{{doneTotal}}</span>/全部{{total}}
         </span>
-        <button class="btn btn-danger">清除已完成的任务</button>
+        <button class="btn btn-danger" @click="clearAll">清除已完成的任务</button>
     </div>
 </template>
 
 <script>
 export default {
-    name:"MyFooter"
+    name:"MyFooter",
+    props:["todos","checkAllTodo","clearAllTodo"],
+    computed:{
+      doneTotal(){
+        // let i = 0
+        // this.todos.forEach((todo)=>{
+        //   if(todo.done) i++
+        // }) 
+        // return i
+        // 高端点的统计方法 reduce + 箭头函数缩写
+        return this.todos.reduce((pre,current)=> pre + (current.done ? 1:0),0)
+        
+      },
+      total(){
+        return this.todos.length
+        // return 0
+      },
+      // 控制全选全不选
+      isAll:{
+        get(){
+          return this.doneTotal === this.total && this.total > 0
+        },
+        set(value){
+          this.checkAllTodo(value)
+        },
+      },
+     
+    },
+    methods:{
+      clearAll(){
+        this.clearAllTodo()
+      },
+    }
 }
 </script>
 
