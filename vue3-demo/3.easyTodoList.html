@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                inputValue:"",
+                list:["a","b"]
+            }
+        },
+        methods: {
+            addItem(){
+                this.list.push(this.inputValue)
+                this.inputValue=""
+
+            }
+        },
+        template:`
+            <input v-model="inputValue" />
+            <button v-on:click="addItem" v-bind:title="inputValue">增加</button>
+            <ul>
+                <li v-for="(item,index) of list">{{item}}{{index}}</li>
+            </ul>
+        `
+
+    }).mount("#root")
+</script>
+</html>
