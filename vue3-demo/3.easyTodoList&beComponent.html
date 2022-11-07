@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,32 +8,52 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body>
     <div id="root"></div>
 </body>
 <script>
+    //vue实例
     const app = Vue.createApp({
         data() {
             return {
-                inputValue:"",
-                list:["a","b"]
+                inputValue: "",
+                list: ["a", "b"]
             }
         },
         methods: {
-            addItem(){
+            addItem() {
                 this.list.push(this.inputValue)
-                this.inputValue=""
+                this.inputValue = ""
 
             }
         },
-        template:`
+        template: `
+        <div>
             <input v-model="inputValue" />
             <button v-on:click="addItem" v-bind:title="inputValue">增加</button>
             <ul>
-                <li v-for="(item,index) of list">{{item}}{{index}}</li>
+                <todo-item 
+                v-for="(item,index) of list" 
+                v-bind:content="item"
+                v-bind:index="index"
+                />
             </ul>
+        </div>
         `
+        // <li v-for="(item,index) of list">{{item}}{{index}}</li
 
-    }).mount("#root")
+    })
+    // 组件
+    app.component("todo-item", {
+        props: ["content","index"],
+        template: `
+            <li>{{index}}--{{content}}</li>
+            `
+    })
+    //组件创建完之后再挂载
+    app.mount("#root")
+
 </script>
+
 </html>
