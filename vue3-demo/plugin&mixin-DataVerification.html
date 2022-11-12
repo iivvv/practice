@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据校验的插件</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script>
+    //创建vue app
+    const app = Vue.createApp({
+        data() {
+            return {
+                name: "dell",
+                age: 28,
+            };
+        },
+
+        template: `
+            <div>name:{{name}},age:{{age}}</div>
+            `,
+
+        //自定义属性（会被存在options里），校验规则，需要让vue识别
+        rules: {
+            age: {
+                validate: (age) => age > 25, //符合条件的返回true
+                message: "太年轻了",
+            },
+            name: {
+                validate: (name) => name.length >= 4,
+                message: "太短了",
+            },
+        },
+    });
+
+    //用mixin实现规则校验
+    //定义全局mixin（可直接使用
+    // app.mixin({
+    //     created() {
+    //         // console.log("mixin ready");
+    //         // console.log(this.$options.rules);
+    //         //获取app中的自定义options-rules-age
+    //         for (let key in this.$options.rules) {
+    //             const item = this.$options.rules[key];
+    //             // console.log(key,item);
+    //             // console.log(this); //proxy  获取vue实例（是个代理
+    //             //通过底层？设置监听,age属性改变了就校验age的value
+    //             this.$watch(key, (value) => {
+    //                 // console.log(key,"changed");
+    //                 const result = item.validate(value);
+    //                 if (!result) console.log(item.message);
+    //             });
+    //         }
+    //     },
+    // });
+
+    //用plugin实现，比mixin的可读性可扩展性要好
+    //定义插件
+    const validatorPlugin = (app, options) => {
+        app.mixin({
+            created() {
+                for (let key in this.$options.rules) {
+                    const item = this.$options.rules[key];
+                    this.$watch(key, (value) => {
+                        const result = item.validate(value);
+                        if (!result) console.log(item.message);
+                    });
+                }
+            },
+        });
+    };
+    //使用插件
+    app.use(validatorPlugin)
+
+
+    //挂载app到dom
+    const vm = app.mount("#root");
+</script>
+
+</html>
