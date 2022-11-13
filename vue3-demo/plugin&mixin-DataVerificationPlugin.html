@@ -63,6 +63,7 @@
 
     //用plugin实现，比mixin的可读性可扩展性要好
     //定义插件
+    //install可以写成箭头函数
     const validatorPlugin = (app, options) => {
         app.mixin({
             created() {

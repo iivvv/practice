@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+   
+    <div id="root">
+        <input :value="inputValue" @change="handleInputValueChange" />
+        <button @click="()=>addItemToList(inputValue)">提交</button>
+        <ul>
+            <li v-for="(item,index) in list" :key="index">{{item}}</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    //list操作封装
+    const listRelativeEffect = () => {
+        const { reactive } = Vue
+        const list = reactive([])
+        const addItemToList = (item) => {
+            list.push(item)
+        }
+        return { list, addItemToList }
+    }
+    //input操作封装
+    const InputRelativeEffect = () => {
+        const { ref } = Vue
+        const inputValue = ref("")
+        const handleInputValueChange = (e) => {
+            inputValue.value=e.target.value
+        }
+        return { inputValue, handleInputValueChange }
+    }
+
+
+    const app = Vue.createApp({
+        setup(props) {
+            //流程调度中转
+            const {list, addItemToList}=listRelativeEffect()
+            const {inputValue, handleInputValueChange }=InputRelativeEffect()
+
+            return{
+                list,addItemToList,
+                inputValue,handleInputValueChange
+            }
+        }
+    });
+
+    const vm = app.mount("#root");
+
+
+
+ 
+// input输入框的change事件，要在 input 失去焦点的时候才会触发；
+// 在输入框内容变化的时候不会触发change，当鼠标在其他地方点一下才会触发； 
+// input事件是每输入一个字符都会触发
+
+</script>
+
+</html>
