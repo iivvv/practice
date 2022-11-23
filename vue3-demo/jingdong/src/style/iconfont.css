@@ -1,0 +1,20 @@
+@font-face {
+    /* 两处名字要一致 */
+    font-family: "iconfont logo";
+    /* 下载下来的demo.css的远程链接是错的要去网站上复制正确的链接（iconfont.css里是本地地址） */
+    src: url('//at.alicdn.com/t/c/font_3787006_u0s6dzj407.woff2?t=1669190082249') format('woff2'),
+    url('//at.alicdn.com/t/c/font_3787006_u0s6dzj407.woff?t=1669190082249') format('woff'),
+    url('//at.alicdn.com/t/c/font_3787006_u0s6dzj407.ttf?t=1669190082249') format('truetype');
+  }
+  
+
+  /* 用的时候属性名要一致 */
+  .logo { 
+    /* 两处名字要一致 */
+    font-family: "iconfont logo";
+    font-size: .16rem;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+

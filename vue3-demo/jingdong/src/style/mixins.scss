@@ -1,0 +1,6 @@
+//文字过长缩略...
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
