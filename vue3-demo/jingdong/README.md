@@ -151,7 +151,9 @@ v-for可以嵌套
 
 ### 页面2-登录注册
 
-##### 布局样式
+#### 登录页面——
+
+##### 1.布局样式
 
 绝对定位居中技巧
 
@@ -161,15 +163,62 @@ input外为什么要包一层？
 
 Input placeholder
 
-##### 常用颜色设成变量
+###### 常用颜色设成变量
 
-##### 路由设置
+##### 2.路由设置
 
-##### 路由守卫实现基础登录校验功能
+##### 2.1根据地址跳转页面
+
+router——index.js 设置routes
+
+##### 2.2路由守卫实现基础登录校验功能
+
+###### 页面跳转之前验证登录权限
+
+`router.beforeEach((to, from, next) => {`
+
+在路由跳转的时候调用这个api，
+
+判断是否登录，if已登录就跳转到首页，else跳去登录页面——用判断localStorage.isLogin
+
+用登录按钮的点击事件控制登录权限isLogin（暂时不校验登录密码）
+
+###### 登录后自动跳转到首页
+
+```vue
+import { useRouter } from 'vue-router'
+
+router.push({ name: 'HomePage' })
+```
+
+###### 登录后不让再访问登录页面
+
+```vue
+const { isLogin } = localStorage
+      isLogin ? next({ name: 'HomePage' }) : next()
+```
 
 
 
+此处所用路由知识点总结：
 
+- 局部跳转校验：`beforeEnter (to, from, next) { } `//跳转到某页面前执行
+
+- 全局跳转校验：`router.beforeEach((to, from, next) => { } `
+
+- 获取路由实例，由js实现路由跳转：
+
+  ```vue
+  import { useRouter } from 'vue-router'
+  const router = useRouter()
+  router.push({name:'xxx' })
+  ```
+
+#### 注册页面——9-3（进行中）
+
+
+
+路由串联复习
 
 
 
