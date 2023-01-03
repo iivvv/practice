@@ -2,32 +2,30 @@
     <div class="wrapper">
         <img src="http://www.dell-lee.com/imgs/vue3/user.png" alt="" class="wrapper__img">
         <div class="wrapper__input">
-            <input type="password" class="wrapper__input__content" placeholder="请输入手机号">
+            <input type="text" class="wrapper__input__content" placeholder="请输入手机号">
         </div>
         <div class="wrapper__input">
-            <input type="password" class="wrapper__input__content" placeholder="请输入密码">
+            <input  class="wrapper__input__content" type="password" placeholder="请输入密码">
         </div>
-        <div class="wrapper__login-button" @click="handleLogin">登录</div>
-        <div class="wrapper__login-link" @click="handleRegisterClick">立即注册</div>
+        <div class="wrapper__input">
+            <input type="password" class="wrapper__input__content" placeholder="确认密码">
+        </div>
+        <div class="wrapper__register-button">注册</div>
+        <div class="wrapper__register-link" @click="handleLoginClick">已有账号去登录</div>
     </div>
 </template>
 
 <script>
 import { useRouter } from 'vue-router'
 export default {
-  name: 'LoginPage',
+  name: 'RegisterPage',
   setup () {
     // 获取路由实例
     const router = useRouter()
-    const handleLogin = () => {
-      // 暂时不校验账号密码
-      localStorage.isLogin = true
-      router.push({ name: 'HomePage' })
+    const handleLoginClick = () => {
+      router.push({ name: 'LoginPage' })
     }
-    const handleRegisterClick = () => {
-      router.push({ name: 'RegisterPage' })
-    }
-    return { handleLogin, handleRegisterClick }
+    return { handleLoginClick }
   }
 }
 </script>
@@ -65,7 +63,7 @@ export default {
             // background-color: aqua;
         }
     }
-    &__login-button {
+    &__register-button {
         background-color: #0091ff;
         box-shadow: 0 .04rem .08rem 0 rgba(0,145,225,0.32);
         border-radius: .04rem;
@@ -75,7 +73,7 @@ export default {
         text-align: center;
         font-size: .16rem;
     }
-    &__login-link{
+    &__register-link{
         font-size: .14rem;
         text-align: center;
         color: $content-notice-color;;

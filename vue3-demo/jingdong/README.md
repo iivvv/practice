@@ -187,8 +187,9 @@ router——index.js 设置routes
 
 ```vue
 import { useRouter } from 'vue-router'
-
-router.push({ name: 'HomePage' })
+const router = useRouter()
+router.push({ name: 'HomePage' })  
+// 这个push是为啥 路由都有哪些方法
 ```
 
 ###### 登录后不让再访问登录页面
@@ -214,15 +215,21 @@ const { isLogin } = localStorage
   router.push({name:'xxx' })
   ```
 
-#### 注册页面——9-3（进行中）
+#### 注册页面——
+
+新页面:写组件——设置路由——组件中的路由跳转事件——修改细节（密码打码、登录页细节修改）
+
+优化——
+
+因为注册和登录页面非常相似，可以写在一个文件里节约代码量，通过判断某个条件显示注册还是登录
+
+但是写在一起未来扩展性会弱一点
+
+根据情况来（如果登录注册差不多就可以写一起
 
 
 
-路由串联复习
-
-
-
-### 页面3-商家展示
+### 页面3-商家展示 （9-4进行中）
 
 
 
